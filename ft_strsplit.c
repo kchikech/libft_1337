@@ -6,7 +6,7 @@
 /*   By: hkchikec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/12 18:50:02 by hkchikec          #+#    #+#             */
-/*   Updated: 2019/04/14 11:16:28 by hkchikec         ###   ########.fr       */
+/*   Updated: 2019/04/15 02:02:52 by hkchikec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ char	**ft_strsplit(char const *s, char c)
 	int		j;
 	int		k;
 
+	if (!s)
+		return (0);
 	if(!(str1 = (char **)malloc(sizeof(char *) * (ft_count_words(s,c) ))))
 		return(NULL);
 	if(!alloc_2d(str1, s, c))

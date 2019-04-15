@@ -6,7 +6,7 @@
 /*   By: hkchikec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/11 18:01:36 by hkchikec          #+#    #+#             */
-/*   Updated: 2019/04/12 15:27:26 by hkchikec         ###   ########.fr       */
+/*   Updated: 2019/04/15 01:36:05 by hkchikec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 void	ft_putendl_fd(char const *s, int fd)
 {
-	ft_putstr_fd(s, fd);
+	if (s)
+	{
+		ft_putstr_fd(s, fd);
+	}
 	ft_putchar_fd('\n', fd);
 }

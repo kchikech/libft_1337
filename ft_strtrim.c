@@ -6,7 +6,7 @@
 /*   By: hkchikec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/11 02:03:39 by hkchikec          #+#    #+#             */
-/*   Updated: 2019/04/14 00:14:07 by hkchikec         ###   ########.fr       */
+/*   Updated: 2019/04/15 00:09:49 by hkchikec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,22 +19,26 @@ char	*ft_strtrim(char const *s)
 	int		n;
 	char	*t;
 
-	left = 0;
-	right = ft_strlen(s) - 1;
-	n = 0;
-	while (s[left] == ' ' || s[left] == '\n' || s[left] == '\t')
-		left++;
-	while (s[right] == ' ' || s[right] == '\n' || s[right] == '\t')
-		right--;
-	if (right < left)
-		return (ft_strnew(ft_strlen(s)));
-	if(!(t = (char *)malloc(right - left + 1)))
-		return (NULL);
-	if (ft_strlen(s) == ft_strlen(t))
-		ft_strcpy(t, (char *)s);
-	else
+	if (s)
 	{
-		t = ft_strsub(s, left, (right - left + 1));
+		left = 0;
+		right = ft_strlen(s) - 1;
+		n = 0;
+		while (s[left] == ' ' || s[left] == '\n' || s[left] == '\t')
+			left++;
+		while (s[right] == ' ' || s[right] == '\n' || s[right] == '\t')
+			right--;
+		if (right < left)
+			return (ft_strnew(ft_strlen(s)));
+		if(!(t = (char *)malloc(right - left + 1)))
+			return (NULL);
+		if (ft_strlen(s) == ft_strlen(t))
+			ft_strcpy(t, (char *)s);
+		else
+		{
+			t = ft_strsub(s, left, (right - left + 1));
+		}
+		return (t);
 	}
-	return (t);
+	return (NULL);
 }
