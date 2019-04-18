@@ -6,7 +6,7 @@
 /*   By: hkchikec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/02 01:18:14 by hkchikec          #+#    #+#             */
-/*   Updated: 2019/04/15 02:11:36 by hkchikec         ###   ########.fr       */
+/*   Updated: 2019/04/15 16:33:30 by hkchikec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,18 @@ char		*ft_strdup(char *src)
 	size_t	i;
 
 	len = ft_strlen(src);
-	if(!(temp = (char*)malloc(len + 1)))
-		return (NULL);
-	i = 0;
-	while (i < len)
+	if (src)
 	{
-		temp[i] = src[i];
-		i++;
+		if(!(temp = (char*)malloc(len + 1)))
+			return (NULL);
+		i = 0;
+		while (i < len)
+		{
+			temp[i] = src[i];
+			i++;
+		}
+		temp[i] = '\0';
+		return (temp);
 	}
-	temp[i] = '\0';
-	return (temp);
+	return (NULL);
 }
