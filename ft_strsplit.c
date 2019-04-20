@@ -6,7 +6,7 @@
 /*   By: hkchikec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/12 18:50:02 by hkchikec          #+#    #+#             */
-/*   Updated: 2019/04/15 03:31:23 by hkchikec         ###   ########.fr       */
+/*   Updated: 2019/04/20 15:50:16 by hkchikec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ size_t	ft_count_words(char const *s, char c)
 		return (0);
 	while (s[i])
 	{
-		if (s[i] != c  && (s[i + 1] == c ))
+		if (s[i] != c && (s[i + 1] == c))
 			count++;
 		i++;
 		if (s[i] == '\0' && s[i - 1] != c)
@@ -32,68 +32,29 @@ size_t	ft_count_words(char const *s, char c)
 	return (count);
 }
 
-char	**alloc_2d(char **str, char const *str2, char c)
+char    **ft_strsplit(char const *s, char c)
 {
-	int i;
-	int j;
-	int count;
+	char    **tab;
+	int     i;
+	int     start;
+	int     j;
+	int     wd;
 
+	wd = ft_count_words((char *)s, c);
 	i = 0;
-	count = 0;
 	j = 0;
-	while (str2[i])
-	{
-		while (str2[i] == c && str2[i])
-			i++;
-		while (str2[i] != c && str2[i])
-		{
-			count++;
-			i++;
-		}
-		while (str2[i] == c && str2[i])
-			i++;
-		if(!(str[j] = (char *)malloc(sizeof(char) * (count + 1))))
-			return(NULL);
-		str[j][count] = '\0';
-		count = 0;
-		j++;
-	}
-	return (str);
-}
-
-char	**ft_strsplit(char const *s, char c)
-{
-	char	**str1;
-	int		i;
-	int		j;
-	int		k;
-
-	if (!s)
+	tab = (char **)malloc(sizeof(char *) * (wd + 1));
+	if (tab == NULL)
 		return (NULL);
-	if(!(str1 = (char **)malloc(sizeof(char *) * (ft_count_words(s,c) ))))
-		return(NULL);
-	if(!alloc_2d(str1, s, c))
-		return(NULL);
-	i = 0;
-	j = -1;
-	while (s[i] && str1[i])
+	while (j < wd)
 	{
-		while (str1[++j])
-		{
-			while (s[i] == c  && s[i])
-				i++;
-			k = -1;
-			while (s[i] != c && s[i])
-			{
-				str1[j][++k] = s[i];
-				i++;
-			}
-		}
+		while (s[i] == c)
+			i++;
+		start = i;
+		while (s[i] != c && s[i] != '\0')
+			i++;
+		tab[j++] = ft_strsub((char *)s, start, (i - start));
 	}
-	if (str1 == NULL)
-	{
-		**str1 = '\0';
-		return (str1);
-	}
-	return (str1);
+	tab[j] = NULL;
+	return (tab);
 }
