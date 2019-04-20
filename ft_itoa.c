@@ -6,7 +6,7 @@
 /*   By: hkchikec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 21:36:01 by hkchikec          #+#    #+#             */
-/*   Updated: 2019/04/18 03:00:56 by hkchikec         ###   ########.fr       */
+/*   Updated: 2019/04/20 16:03:22 by hkchikec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ char	*ft_itoa(int num)
 	{
 		str[digit_count-- - 1] = num % 10 + '0';
 		num = num / 10;
-//		digit_count--;
 	}
 	if (digit_count == 1)
 		str[0] = '-';

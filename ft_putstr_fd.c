@@ -6,7 +6,7 @@
 /*   By: hkchikec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/11 17:49:15 by hkchikec          #+#    #+#             */
-/*   Updated: 2019/04/15 01:29:50 by hkchikec         ###   ########.fr       */
+/*   Updated: 2019/04/20 16:03:58 by hkchikec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,5 @@ void	ft_putstr_fd(char const *s, int fd)
 	{
 		while (s[i])
 			ft_putchar_fd(s[i++], fd);
-
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: hkchikec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/11 02:03:39 by hkchikec          #+#    #+#             */
-/*   Updated: 2019/04/15 00:09:49 by hkchikec         ###   ########.fr       */
+/*   Updated: 2019/04/20 16:00:40 by hkchikec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,12 @@ char	*ft_strtrim(char const *s)
 			right--;
 		if (right < left)
 			return (ft_strnew(ft_strlen(s)));
-		if(!(t = (char *)malloc(right - left + 1)))
+		if (!(t = (char *)malloc(right - left + 1)))
 			return (NULL);
 		if (ft_strlen(s) == ft_strlen(t))
 			ft_strcpy(t, (char *)s);
 		else
-		{
 			t = ft_strsub(s, left, (right - left + 1));
-		}
 		return (t);
 	}
 	return (NULL);
