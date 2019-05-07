@@ -1,20 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkchikec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/05 06:41:56 by hkchikec          #+#    #+#             */
-/*   Updated: 2019/05/04 11:18:15 by hkchikec         ###   ########.fr       */
+/*   Created: 2019/04/22 23:27:37 by hkchikec          #+#    #+#             */
+/*   Updated: 2019/04/23 05:21:04 by hkchikec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_toupper(int c)
+void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-	if (c <= 'z' && c >= 'a')
-		return (c - 32);
-	return (c);
+	t_list *tmp;
+	t_list *next;
+
+	tmp = *alst;
+	if (del)
+	{
+		while (tmp != NULL)
+		{
+			next = tmp->next;
+			del(tmp->content, tmp->content_size);
+			free(tmp);
+			tmp = next;
+		}
+		*alst = NULL;
+	}
 }
