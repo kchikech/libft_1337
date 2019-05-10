@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_lstcount.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkchikec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/05 20:08:26 by hkchikec          #+#    #+#             */
-/*   Updated: 2019/05/07 23:09:52 by hkchikec         ###   ########.fr       */
+/*   Created: 2019/05/09 01:33:27 by hkchikec          #+#    #+#             */
+/*   Updated: 2019/05/09 23:33:07 by hkchikec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isascii(int c)
+int		ft_lstcount(t_list *head)
 {
-	return (c >= 0 && c <= 127);
+	t_list *cur = head;
+
+	int i = 0;
+	while(cur != NULL)
+	{
+		i++;
+		cur = cur->next;
+	}
+	return (i);
 }

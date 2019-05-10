@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_islower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkchikec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/11 18:01:36 by hkchikec          #+#    #+#             */
-/*   Updated: 2019/04/12 15:20:52 by hkchikec         ###   ########.fr       */
+/*   Created: 2019/05/07 23:05:35 by hkchikec          #+#    #+#             */
+/*   Updated: 2019/05/07 23:06:30 by hkchikec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl_fd(char const *s, int fd)
+int		ft_islower(char c)
 {
-	ft_putstr_fd(s, fd);
-	ft_putchar('\0');
+	return (c <= 'z' && c >= 'a' ? 1 : 0);
 }
